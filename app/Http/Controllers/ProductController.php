@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+
+    public function __construct(Request $request) 
+    {
+        dd($request->edit);
+        $this->request = $request;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -13,8 +19,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = ['products' => ['01' => 'Product 01', '02' => 'Product 02', '03' => 'Product 03']];
-        return $products;
+        // $products = ['products' => ['01' => 'Product 01', '02' => 'Product 02', '03' => 'Product 03']];
+        // return $products;
+
     }
 
     /**
