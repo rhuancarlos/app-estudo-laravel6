@@ -9,8 +9,11 @@ class ProductController extends Controller
 
     public function __construct(Request $request) 
     {
-        dd($request->edit);
+        // dd($request->edit);
         $this->request = $request;
+        //this->middleware('auth'); #all Controller
+        //$this->middleware('auth')->only('create'); #aplicar somente function specificate
+        //$this->middleware('auth')->except(['index', 'show']); #aplicar em todos exceto estas
     }
     /**
      * Display a listing of the resource.
@@ -19,9 +22,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // $products = ['products' => ['01' => 'Product 01', '02' => 'Product 02', '03' => 'Product 03']];
-        // return $products;
-
+        $products = ['products' => ['01' => 'Product 01', '02' => 'Product 02', '03' => 'Product 03']];
+        return $products;
     }
 
     /**

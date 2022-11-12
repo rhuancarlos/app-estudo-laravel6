@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/login', function () {
+    return 'Login!';
+})->name('login');
+
 //****************/ ROUTES USING CONTROLLERS ************/
 /*
 Route::delete('/products/{id}', 'ProductController@destroy')->name('products.destroy');
@@ -28,5 +32,9 @@ Route::post('/products', 'ProductController@store')->name('products.store');
 //********************************************************/
 
 //****************/ ROUTES USING RESOURCES ***************/
-Route::resource('products', 'ProductController');
+// Route::resource('products', 'ProductController');
+//********************************************************/
+
+//****************/ ROUTES USING RESOURCES WITH MIDDLEWARE*/
+Route::resource('products', 'ProductController');//->middleware('auth');
 //********************************************************/
