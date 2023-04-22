@@ -22,8 +22,17 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = ['products' => ['01' => 'Product 01', '02' => 'Product 02', '03' => 'Product 03']];
-        return $products;
+        $titlePage = "Exibindo os produtos";
+        $typeSwitch = 4;
+        $arrDados = ['azul','amarelo','preto','vermelho'];
+        $arrProdutos = [];
+        $listProducts = "<ul>
+            <li>Produto 1</li>
+            <li>Produto 2</li>
+            <li>Produto 3</li>
+            <li>Produto 4</li>
+        </ul>";
+        return view('admin.pages.products.index', compact('titlePage', 'listProducts', 'typeSwitch', 'arrDados', 'arrProdutos'));
     }
 
     /**
@@ -33,7 +42,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return "Form de cadastro de um novo produto";
+        // return "Form de cadastro de um novo produto";
+        return view('admin.pages.products.create');
     }
 
     /**
@@ -44,7 +54,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        return "Cadastrando novo produto";
+        dd('cadastrando ....');
     }
 
     /**
@@ -66,7 +76,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        return "Editar produto: #{$id}";//
+        // return "Editar produto: #{$id}";//
+        return view('admin.pages.products.edit', compact('id'));
     }
 
     /**
@@ -78,7 +89,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return "Editando o produto: {$id}";
+        // return "Editando o produto: {$id}";
+        dd("Editando produto...: $id");
     }
 
     /**
